@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <style>
+        #savedmemes{
+            opacity:1;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Pacil Gag: Pacilians Daily Meme Supply
+{% endblock %}
+
+{% block body %}
+<div class="container2">
+    <div class="grid" id='grid'>
+        <div class="grid-col grid-col--1">
+
+        </div>
+        <div class="grid-col grid-col--1">
+            
+        </div>
+        <div class="grid-col grid-col--1">
+            
+        </div>
+        {% for meme in memes %}
+            {% if meme.url is defined and meme.url|length %}
+                <div class="grid-item">
+                    <img src="{{ meme.url }}" >
+                    <div class="content">
+                        <h5>{{ meme.title }}</h5>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://unpkg.com/colcade@0/colcade.js"></script>
+    <script>
+            var colc = new Colcade( '.grid', {
+            columns: '.grid-col',
+            items: '.grid-item'
+        });
+    </script>
+{% endblock %}

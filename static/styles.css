@@ -1,0 +1,219 @@
+/* Layout Work */
+
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration:none;
+    font-family:'Roboto', sans-serif;
+    font-size:16px;
+}
+
+body{
+    background:#14062F;
+}
+
+header{
+    display:flex;
+    width:100%;
+    height:10vh;
+    background:#302858;
+    color:white;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.75);
+}
+
+.header{
+    display:flex;
+    margin:0 auto;
+    width:80%;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    border-radius:5px;
+    background:white;
+    width:30%;
+    height:50%;
+    overflow:hidden;
+    box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+#search{
+    font-size:0.55em;
+    border:0;
+    line-height:30px;
+    color:#000000;
+    outline:none;
+}
+
+.nav-links{
+    display:flex;
+}
+
+.nav-link{
+    margin:40px;
+}
+
+#savedmemes,
+#discover{
+    font-size:0.8em;
+    color:#ffffff;
+    opacity:0.6;
+}
+
+#savedmemes:hover,
+#discover:hover{
+    opacity:1;
+}
+
+/* Index Page Work */
+
+.text-placeholder{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    height:90vh;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.texts{
+    display:flex;
+    align-items:center;
+    flex-direction: column;
+}
+
+.texts li{
+    margin:5px;
+    font-weight:500;
+}
+
+#welcome{
+    font-size:2em;
+    font-weight:800;
+}
+
+#created{
+    font-size:1.2em;
+}
+
+#collab,
+#hint{
+    font-size:0.8em;
+}
+
+/* Search Page */
+.container1{
+    height:80vh;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    padding-top:40px;
+    align-items:center;
+    font-weight:400;
+}
+
+.card{
+    max-width:330px;
+    max-height:330px;
+}
+
+.card-img-top{
+    margin-top:20px;
+    border-radius:20px;;
+    width:100%;
+}
+
+.searchresult{
+    letter-spacing:0.5px;
+    font-weight:500;
+}
+
+.smalltext{
+    font-size:0.8em;
+}
+
+.save-tag{
+    display:flex;
+    margin:0 auto;
+    width:95%;
+    color:white;
+    justify-content:flex-end;
+}
+
+.save-tag ul{
+    cursor:pointer;
+    letter-spacing:0.005em;
+    outline:none;
+    display:flex;
+}
+
+.save-tag ul:hover{
+    -webkit-box-shadow: inset 0px 0px 15px 2px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0px 0px 15px 2px rgba(255,255,255,1);
+    box-shadow: inset 0px 0px 15px 2px rgba(255,255,255,1);
+}
+
+.save-tag:last-child{
+    margin-bottom:0;
+}
+
+.save-tag li{
+    cursor:pointer;
+    letter-spacing:0.005em;
+}
+
+/* Discover Work & Reused in Saved Memes */
+.grid-col {
+    float: left;
+    width:33.333%;
+}
+
+.grid img{
+    width:100%;
+    border-radius:20px;
+}
+
+.grid-item{
+    margin:0 1em 1em;
+}
+
+.container2{
+    margin:0 auto;
+    width:80%;
+    padding-top:40px;
+}
+
+.grid h5{
+    color:white;
+}
+
+.content{
+    display:flex;
+    width:95%;
+    margin:0 auto;
+}
+
+.grid-item:hover{
+    background:linear-gradient(180deg, #302858 0%, #490074 191.18%);
+    border-radius:20px;
+    padding-bottom:20px;
+}

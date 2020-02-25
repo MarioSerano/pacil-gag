@@ -1,0 +1,79 @@
+{% extends "layout.html" %}     
+
+{% block head %}
+    <style>
+        #discover{
+            opacity:1;
+        }
+    </style>
+{% endblock %}
+
+{% block title %} 
+    Pacil Gag: Pacilians Daily Meme Supply
+{% endblock %}
+
+{% block body %}
+    <script>
+        function save(param) {
+            var documentSaveTagPic = document.getElementById("save-image-".concat(param));
+            var documentSaveTagText = document.getElementById("save-text-".concat(param));
+            if (documentSaveTagPic.src == "http://localhost:5000/static/save-tag.png"){
+                documentSaveTagPic.src = "/static/saved-tag.png";
+                documentSaveTagText.textContent = "Saved";
+            }   else{
+                documentSaveTagPic.src = "/static/save-tag.png";
+                documentSaveTagText.textContent = "Save";
+            }
+            var intParam = parseInt(param);
+            var paramContext = {
+                'memeid':intParam
+            };
+            fetch('/save', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(paramContext)
+            }  
+        )
+        } 
+    </script>
+    <div class="container2">
+        <div class="grid" id='grid'>
+            <div class="grid-col grid-col--1">
+
+            </div>
+            <div class="grid-col grid-col--1">
+                
+            </div>
+            <div class="grid-col grid-col--1">
+                
+            </div>
+            {% for meme in memes %}
+                {% if meme['url'] is defined and meme['url']|length %}
+                    <div class="grid-item">
+                        <img src="{{ meme.url }}" >
+                        <div class="save-tag" id="save-tag-{{ meme.id }}" onclick="save('{{ meme.id }}')">
+                            <ul>
+                                <li id="vector"><img style="width:80%;"src="/static/save-tag.png" id="save-image-{{ meme.id }}"></li>
+                                <li id="save-text-{{meme.id}}">Save</li>
+                            </ul>
+                        </div>
+                        <div class="content">
+                            <h5>{{ meme.title }}</h5>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+    <script src="https://unpkg.com/colcade@0/colcade.js"></script>
+    <script>
+            var colc = new Colcade( '.grid', {
+            columns: '.grid-col',
+            items: '.grid-item'
+        });
+    </script>
+{% endblock %}
